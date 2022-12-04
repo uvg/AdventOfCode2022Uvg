@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Export generator="Cache" version="25">
+  <Document name="aoc-2022-uvg.ZPM">
+    <Module>
+      <Name>aoc-2022-uvg</Name>
+      <Version>0.0.1</Version>
+      <Description>Advent of code 2022 in COS classes</Description>
+      <Keywords>contest,objectscript,adventofcode,aoc</Keywords>
+      <Author>
+            <Person>Yuval Golan</Person>
+            <CopyrightDate>2022</CopyrightDate>
+      </Author>
+      <Packaging>module</Packaging>
+      <Resource Name="AOC2022.PKG"/>
+      <SourcesRoot>src</SourcesRoot>
+      <AfterInstallMessage>Thank you for installing aoc-2022-uvg by Yuval Golan</AfterInstallMessage>
+    </Module>
+  </Document>
+</Export>
