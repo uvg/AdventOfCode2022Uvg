@@ -23,10 +23,6 @@ ClassMethod Part1(verbose = 0) As %String [ Private ]
 				//vertical
 				set x=startX,dir=1
 				set:endY<startY dir=-1
-				set:startY<minY minY=startY
-				set:startY>maxY maxY=startY
-				set:endY<minY minY=endY
-				set:endY>maxY maxY=endY
 				for y=startY:dir:endY {
 					set grid(y,x)="#"
 				}
@@ -45,6 +41,7 @@ ClassMethod Part1(verbose = 0) As %String [ Private ]
 			set start=end
 		}
 	}
+	set minY=$order(grid("")),maxY=$order(grid(""),-1)
 	if verbose write ! zwrite minX,maxX,minY,maxY //,grid
 	for y=minY:1:maxY {
 		for x=minX:1:maxX {
@@ -52,6 +49,8 @@ ClassMethod Part1(verbose = 0) As %String [ Private ]
 		}
 	}
 	if verbose write ! do ..GridDisplay(.grid)
+	//if verbose zwrite grid
+	//quit 0
 	//OFF BY 1!!!! I did from 1 instead from 0, nahhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh....took me more than 1.5 hour to figure it out
 	for counter=0:1 {
 		quit:'..PourSand(.grid,500,0,minX,maxX)
@@ -120,10 +119,6 @@ ClassMethod Part2(verbose = 0) As %String [ Private ]
 				//vertical
 				set x=startX,dir=1
 				set:endY<startY dir=-1
-				set:startY<minY minY=startY
-				set:startY>maxY maxY=startY
-				set:endY<minY minY=endY
-				set:endY>maxY maxY=endY
 				for y=startY:dir:endY {
 					set grid(y,x)="#"
 				}
@@ -142,6 +137,7 @@ ClassMethod Part2(verbose = 0) As %String [ Private ]
 			set start=end
 		}
 	}
+	set minY=$order(grid("")),maxY=$order(grid(""),-1)
 	if verbose write ! zwrite minX,maxX,minY,maxY //,grid
 	set maxY=maxY+2,minX=minX\2,maxX=maxX*2
 	if verbose zwrite minX,maxX
