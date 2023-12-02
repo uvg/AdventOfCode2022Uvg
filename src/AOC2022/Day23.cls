@@ -35,7 +35,6 @@ ClassMethod GetEmptyGround(ByRef grid)
 	set y="",total=0
 	for  {
 		set y=$order(grid(y)) quit:y=""
-		set data=grid(y)
 		set total=total+$length($translate(grid(y),"#"))
 	}
 	quit total
