@@ -97,8 +97,6 @@ ClassMethod MoveRockOnGridX(ByRef grid, ByRef rockArr, dir As %String, y As %Int
 
 ClassMethod IsRightEmpty(ByRef grid, ByRef rockArr, x As %Integer, fromY As %Integer, toY As %Integer) As %Boolean [ Private ]
 {
-	set width=$length(rockArr(1))
-	//zw width,rockArr,x,fromY,toY
 	for y=fromY:1:toY {
 		set diff=..GetFirstFromRight(.rockArr,y-fromY+1)
 		continue:$extract(grid(y),x-diff)="."
@@ -193,8 +191,6 @@ ClassMethod IsDownEmpty(ByRef grid, ByRef rockArr, fromY As %Integer, fromX As %
 
 ClassMethod MoveRockDown(ByRef grid, ByRef rockArr, fromY As %Integer, fromX As %Integer) [ Private ]
 {
-	set curLine=grid(fromY)
-	set nextLine=grid(fromY+1)
 	set height=$order(rockArr(""),-1),width=$length(rockArr(1))
 	set toY=fromY+height-1
 	set toX=fromX+width-1
