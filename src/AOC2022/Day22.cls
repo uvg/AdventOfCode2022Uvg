@@ -12,7 +12,7 @@ ClassMethod Part1(verbose = 0) As %String [ Private ]
 	set answer=""
 	set data=..AnalayzeData(.recordsArr,.grid,.rows,.columns)
 	set lastX=$list(data,1),path=$list(data,2)
-	if verbose zwrite grid,path,rows,columns,lastX,path,$length(path)
+	if verbose zwrite grid,path,rows,columns,lastX,path write !,$length(path)
 	set lastPos=..MoveOnGrid(.grid,.rows,.columns,path,$list(rows(1),1),1,0)
 	if verbose zwrite lastPos
 	set answer=($list(lastPos,1)*1000)+($list(lastPos,2)*4)+$list(lastPos,3)
