@@ -51,7 +51,7 @@ ClassMethod Part1(verbose = 0) As %String [ Private ]
 		}
 		do ..GridDisplay(.grid)
 	}
-	set sensor="",counter=0,left=maxX,right=minX
+	set sensor="",counter=0
 	for  {
 		set sensor=$order(sensorArr(sensor)) quit:sensor=""
 		//set sensorArr($increment(sensorArr))=$listbuild(sensorY,sensorX,beaconY,beaconX,dist)
@@ -162,7 +162,7 @@ ClassMethod Part2(verbose = 0) As %String [ Private ]
 		quit:answer
 	}
 	*/
-	set sensor="",found=0,findSize=$select(test:20,1:4000000)
+	set sensor="",findSize=$select(test:20,1:4000000)
 	for  {
 		set sensor=$order(sensorArr(sensor)) quit:sensor=""
 		set data=sensorArr(sensor)

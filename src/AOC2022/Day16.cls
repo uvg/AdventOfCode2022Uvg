@@ -33,7 +33,7 @@ ClassMethod FindShortestPathPriorityQueue(ByRef arr, from As %String, steps As %
 	//arr(from)=$listbuild(rate,to)
 	if maxsteps,steps>maxsteps quit 999999
 	kill ^||Queue,^||cachedArr
-	set ^||Queue(0,$increment(^||Queue))=$listbuild(steps,path,$list(arr(from),1),"",from),maxFlow=0,maxPath="",best=0,lastbest=best
+	set ^||Queue(0,$increment(^||Queue))=$listbuild(steps,path,$list(arr(from),1),"",from),maxFlow=0,best=0,lastbest=best
 	
 	for  {
 		//write !!!! zwrite ^||Queue //hang 1
@@ -184,7 +184,7 @@ ClassMethod FindShortestPathPriorityQueue2(ByRef arr, from As %String, elephant 
 	//arr(from)==$listbuild(rate,to)
 	if maxsteps,steps>maxsteps quit 999999
 	kill ^||Queue,^||cachedArr
-	set ^||Queue(0,$increment(^||Queue))=$listbuild(steps,path,$list(arr(from),1),"",from,elephant,""),maxFlow=0,maxPath="",best=0,lastbest=best
+	set ^||Queue(0,$increment(^||Queue))=$listbuild(steps,path,$list(arr(from),1),"",from,elephant,""),maxFlow=0,best=0,lastbest=best
 	
 	for  {
 		//write !!!! zwrite ^||Queue //hang 1

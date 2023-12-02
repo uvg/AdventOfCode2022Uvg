@@ -11,7 +11,6 @@ ClassMethod Part1(verbose = 0) As %String [ Private ]
 	set answer="",line="",width=$length(recordsArr(1)),height=$order(recordsArr(""),-1),counter=0
 	for {
 		set line=$order(recordsArr(line)) quit:line=""
-		set record=recordsArr(line)
 		if (line=1)||(line=height) {
 			set counter=counter+width
 			continue
@@ -72,7 +71,6 @@ ClassMethod Part2(verbose = 0) As %String [ Private ]
 		if (line=1)||(line=height) {
 			continue
 		}
-		set record=recordsArr(line)
 		for x=2:1:width-1 {
 			set scenicScore=..GetScenicScore(.recordsArr,x,line,width,height,verbose)
 			set:scenicScore>maxScenicScore maxScenicScore=scenicScore

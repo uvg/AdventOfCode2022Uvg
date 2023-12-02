@@ -66,7 +66,7 @@ ClassMethod IsList(string)
 ClassMethod GetListSize(string As %String) As %Integer
 {
 	if '$length(string) quit 0
-	set size=0,squares=0,manip=$extract(string,2,*-1),pos=1
+	set size=0,manip=$extract(string,2,*-1),pos=1
 	for {
 		quit:pos>$length(manip)
 		if $extract(manip,pos)'="[" {
@@ -102,7 +102,7 @@ ClassMethod GetListSize(string As %String) As %Integer
 ClassMethod GetElement(string As %String, elemId As %Integer) As %String
 {
 	if '$length(string) quit ""
-	set size=0,squares=0,manip=$extract(string,2,*-1),pos=1
+	set size=0,manip=$extract(string,2,*-1),pos=1
 	for {
 		quit:pos>$length(manip)
 		if $extract(manip,pos)'="[" {
