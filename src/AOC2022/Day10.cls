@@ -60,19 +60,26 @@ ClassMethod Part2(verbose = 0) As %String [ Private ]
 		}
 	}
 	if verbose zwrite opps
-	set cycle="",pos=0
+	set cycle="",pos=0,y=0,string=""
 	for  {
 		set cycle=$order(opps(cycle)) quit:cycle=""
-		if cycle#40=1 write !
+		if cycle#40=1 {
+			set y=y+1,string=""
+		}
 		if $zabs(pos-x)<2 {
-			write "#"
+			set string=string_"#"
 		} else {
-			write " "
+			set string=string_" "
 		}
 		set pos=pos+1
-		if pos#40=0 set pos=0
+		if pos#40=0 {
+			set pos=0
+			set grid(y)=string
+		}
 		set x=x+opps(cycle)
 	}
+	if verbose zwrite grid
+	set answer=##class(AOC.Utils).OCR(.grid,"#"," ")
 	quit answer
 }
 

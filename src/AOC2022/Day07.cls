@@ -9,12 +9,12 @@ ClassMethod Part1(verbose = 0) As %String [ Private ]
 {
 	do ..GetInputToArray(..#InputFile,.recordsArr)
 	//Compute the sum of all dirs <=100000
-	set answer="",line="",state=0,currDir=""
+	set answer="",line="",currDir=""
 	for {
 		set line=$order(recordsArr(line)) quit:line=""
 		set record=recordsArr(line)
 		if $extract(record,1,4)="$ cd" {
-			set state=1,nextDir=$piece(record," ",3)
+			set nextDir=$piece(record," ",3)
 			if nextDir=".." {
 				set nextDir=$list(filesArr(currDir),1)
 			} else {
@@ -24,7 +24,6 @@ ClassMethod Part1(verbose = 0) As %String [ Private ]
 			continue
 		}
 		if $extract(record,1,4)="$ ls" {
-			set state=2
 			continue
 		}
 		set fileSize=$piece(record," ",1),fileName=$piece(record," ",2)
@@ -92,12 +91,12 @@ ClassMethod Part2(verbose = 0) As %String [ Private ]
 {
 	do ..GetInputToArray(..#InputFile,.recordsArr)
 	//
-	set answer="",line="",state=0,currDir=""
+	set answer="",line="",currDir=""
 	for {
 		set line=$order(recordsArr(line)) quit:line=""
 		set record=recordsArr(line)
 		if $extract(record,1,4)="$ cd" {
-			set state=1,nextDir=$piece(record," ",3)
+			set nextDir=$piece(record," ",3)
 			if nextDir=".." {
 				set nextDir=$list(filesArr(currDir),1)
 			} else {
@@ -107,7 +106,6 @@ ClassMethod Part2(verbose = 0) As %String [ Private ]
 			continue
 		}
 		if $extract(record,1,4)="$ ls" {
-			set state=2
 			continue
 		}
 		set fileSize=$piece(record," ",1),fileName=$piece(record," ",2)
