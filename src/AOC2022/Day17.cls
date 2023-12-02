@@ -275,8 +275,16 @@ ClassMethod Part2(verbose = 0) As %String [ Private ]
 		//Repeat pattern when tpo line is full
 		//if verbose zwrite grid(line),grid(line+1)
 		if (grid(line)="|#######|")||((grid(line)="|..###..|")&&(grid(line+2)="|..####.|")) {  //####### for input data, ### + #### good for example
-			set full($increment(full))=rockCounter
-			quit:full=2
+			//set full($increment(full))=rockCounter
+			//quit:full=2
+			set linesToMark(line)=rockCounter
+			//if verbose do ..DisplayGrid(.grid,,.linesToMark)
+			set ident=..GetIdentical(.grid,.linesToMark)
+			if $length(ident) {
+				set full(1)=linesToMark($list(ident,2))
+				set full(2)=linesToMark($list(ident,1))
+				quit
+			}
 		}
 		quit:rockCounter>20000
 	}
@@ -295,6 +303,26 @@ ClassMethod Part2(verbose = 0) As %String [ Private ]
 	//if verbose zwrite shapes
 	//if verbose do ..DisplayGrid(.grid,,.linesToMark)
 	quit answer
+}
+
+ClassMethod GetIdentical(ByRef grid, ByRef linesToCheck) As %String
+{
+	set height=10
+	set line=""
+	for  {
+		set line=$order(linesToCheck(line)) quit:line=""
+		set nextline=line,ok=0
+		for  {
+			set nextline=$order(linesToCheck(nextline)) quit:nextline=""
+			set ok=1
+			for offset=1:1:height {
+				if grid(line+offset)'=grid(nextline+offset) set ok=0 quit
+			}
+			quit:ok
+		}
+		if ok return $listbuild(line,nextline)
+	}
+	quit ""
 }
 
 }
